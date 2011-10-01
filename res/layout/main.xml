@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:id="@+id/textView1" android:text="Current Hostname" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_marginLeft="5dp" android:layout_centerHorizontal="true"></TextView>
+    <TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/lblHostname" android:text="TextView" android:layout_height="wrap_content" android:layout_below="@+id/textView1" android:layout_marginTop="5dp" android:layout_centerHorizontal="true"></TextView>
+
+    
+    <EditText android:id="@+id/txtHostname" android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="247dp" android:layout_below="@+id/lblHostname" android:layout_marginTop="5dp" android:layout_centerHorizontal="true" >
+        <requestFocus></requestFocus>
+    </EditText>
+    <CheckBox android:layout_weight="1" android:text="Set at boot" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/chkAtBoot" android:layout_below="@+id/txtHostname" android:layout_marginTop="5dp" android:layout_centerHorizontal="true"></CheckBox>
+
+    <Button android:text="Apply" android:layout_weight="1" android:id="@+id/btnApply" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/chkAtBoot" android:layout_marginTop="5dp" android:layout_centerHorizontal="true"></Button>
+</RelativeLayout>
