@@ -14,4 +14,5 @@
     <CheckBox android:layout_weight="1" android:text="Set at boot" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/chkAtBoot" android:layout_below="@+id/txtHostname" android:layout_marginTop="5dp" android:layout_centerHorizontal="true"></CheckBox>
 
     <Button android:text="Apply" android:layout_weight="1" android:id="@+id/btnApply" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/chkAtBoot" android:layout_marginTop="5dp" android:layout_centerHorizontal="true"></Button>
+    <TextView android:id="@+id/lblWarning" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/warning" android:layout_below="@+id/btnApply" android:layout_centerHorizontal="true"></TextView>
 </RelativeLayout>

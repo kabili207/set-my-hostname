@@ -4,11 +4,13 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.wifi.WifiManager;
 import android.widget.Toast;
 
-public class Common {
+public class Shared {
 
 	public static void SetHostname(Context context, String hostname) {
 		
@@ -27,7 +29,6 @@ public class Common {
 			try {    
 				p.waitFor();    
 				if (p.exitValue() != 255) {    
-					// TODO Code to run on success 
 					toastMessage(context, "Hostname set to " + hostname);
 					WifiManager wifi = (WifiManager) context.getSystemService(Activity.WIFI_SERVICE);
 					if(wifi.isWifiEnabled())
@@ -35,17 +36,33 @@ public class Common {
 				}    
 				else {    
 					// TODO Code to run on unsuccessful   
-					//toastMessage(context, "Could not set hostname");       
+					notifyNeedRoot(context);       
 				}    
 			} catch (InterruptedException e) {    
 				// TODO Code to run in interrupted exception   
-				//toastMessage(context, "Could not set hostname");    
+				notifyNeedRoot(context);     
 			}    
 		} catch (IOException e) {    
 			// TODO Code to run in input/output exception   
-			//toastMessage(context, "Could not set hostname");    
+			notifyNeedRoot(context);  
 		}
 		
+	}
+	
+	private static void notifyNeedRoot(Context context) {
+		if(context instanceof Activity) {
+			String message = "This application requires root!";
+			AlertDialog.Builder builder = new AlertDialog.Builder(context);
+			builder.setMessage(message)
+			       .setCancelable(false)
+			       .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+			           public void onClick(DialogInterface dialog, int id) {
+			                dialog.cancel();
+			           }
+			       });
+			AlertDialog alert = builder.create();
+			alert.show();
+		}
 	}
 	
 	private static void toastMessage(Context context, String text) {

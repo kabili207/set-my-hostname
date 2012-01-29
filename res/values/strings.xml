@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, SetMyHostnameActivity!</string>
-    <string name="app_name">Set My Hostname</string>
+    <string name="app_name">Hostname</string>
+    <string name="warning">WARNING: Wifi will be reset to apply changes!</string>
 </resources>
